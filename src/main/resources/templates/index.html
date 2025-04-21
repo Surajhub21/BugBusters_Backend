@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>BugBusters</title>
+    <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          background: linear-gradient(135deg, #1d1d1d, #3a3a3a);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Courier New', Courier, monospace;
+          color: #ffffff;
+          overflow: hidden;
+        }
+
+        .hello-container {
+          font-size: 3rem;
+          white-space: nowrap;
+          overflow: hidden;
+          border-right: 4px solid #fff;
+          width: 0;
+          animation: typing 3s steps(13) forwards, blink 0.6s infinite;
+        }
+
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+          to {
+            width: 13ch;
+          }
+        }
+
+        @keyframes blink {
+          0%, 100% {
+            border-color: transparent;
+          }
+          50% {
+            border-color: white;
+          }
+        }
+
+        .bounce {
+          animation: bounce 1s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+    </style>
+</head>
+<body>
+<div id="hello" class="hello-container">BusBusters Running...</div>
+
+<script>
+    const hello = document.getElementById('hello');
+
+    // Add bounce after typing is done
+    setTimeout(() => {
+      hello.classList.add('bounce');
+    }, 3000);
+
+    // Change color every 2 seconds
+    const colors = ['#ff4c60', '#4cd964', '#ffd700', '#00bcd4', '#ff9800'];
+    let i = 0;
+    setInterval(() => {
+      hello.style.color = colors[i % colors.length];
+      i++;
+    }, 2000);
+</script>
+</body>
+</html>
