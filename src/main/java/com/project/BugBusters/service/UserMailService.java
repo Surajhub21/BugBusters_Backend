@@ -38,7 +38,7 @@ public class UserMailService {
         try {
             SimpleMailMessage mail = new SimpleMailMessage();
             mail.setTo(user.getEmail());
-            mail.setSubject("Conformation on Booking " + user.getPestType() + "PestControl");
+            mail.setSubject("Conformation on Booking " + user.getPestType() + " PestControl");
             mail.setText(emailBody);
 
             javaMailSender.send(mail);
